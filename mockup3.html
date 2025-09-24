@@ -44,7 +44,7 @@
             <div class="flex flex-col md:flex-row justify-between items-center">
                 <div>
                     <h1 class="text-3xl font-bold text-gray-900">Tuberculosis (TB) Clinical Data Dashboard</h1>
-                    <p class="mt-1 text-md text-gray-600">A comprehensive analysis for clinical and epidemiological review.</p>
+                    <p class="mt-1 text-md text-gray-600">A comprehensive analysis for clinical and epidemiological review based on raw data.</p>
                 </div>
                 <div class="mt-4 md:mt-0 flex items-center space-x-2 bg-white p-2 rounded-lg shadow-sm">
                      <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-500" viewBox="0 0 20 20" fill="currentColor">
@@ -53,7 +53,7 @@
                     <span class="text-sm font-medium text-gray-700">Report Period:</span>
                     <select id="date-filter" class="text-sm border-none bg-transparent focus:ring-0 focus:outline-none text-blue-600 font-semibold">
                         <option>Last Quarter</option>
-                        <option selected>Last 12 Months</option>
+                        <option selected>Last 5 Years</option>
                         <option>Year-to-Date</option>
                         <option>All Time</option>
                     </select>
@@ -71,7 +71,7 @@
                 </div>
                 <div>
                     <p class="text-sm text-gray-500">Total Patients</p>
-                    <p class="text-3xl font-bold">1,892</p>
+                    <p class="text-3xl font-bold">29,138</p>
                 </div>
             </div>
 
@@ -80,8 +80,8 @@
                      <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
                 </div>
                 <div>
-                    <p class="text-sm text-gray-500">Confirmed TB Cases</p>
-                    <p class="text-3xl font-bold">1,542</p>
+                    <p class="text-sm text-gray-500">TB Positive</p>
+                    <p class="text-3xl font-bold">_</p> <!-- Needs calculation -->
                 </div>
             </div>
 
@@ -90,8 +90,8 @@
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-yellow-600" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" /></svg>
                 </div>
                 <div>
-                    <p class="text-sm text-gray-500">HIV Co-infection</p>
-                    <p class="text-3xl font-bold">22.1%</p>
+                    <p class="text-sm text-gray-500">HIV Positive</p>
+                    <p class="text-3xl font-bold">_</p> <!-- Needs calculation -->
                 </div>
             </div>
 
@@ -100,8 +100,8 @@
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-red-600" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18.364 18.364A9 9 0 005.636 5.636m12.728 12.728A9 9 0 015.636 5.636m12.728 12.728L5.636 5.636" /></svg>
                 </div>
                 <div>
-                    <p class="text-sm text-gray-500">DM Co-morbidity</p>
-                    <p class="text-3xl font-bold">35.9%</p>
+                    <p class="text-sm text-gray-500">DM Positive</p>
+                    <p class="text-3xl font-bold">_</p> <!-- Needs calculation -->
                 </div>
             </div>
 
@@ -111,35 +111,35 @@
             </div>
 
             <div class="col-span-1 md:col-span-2 lg:col-span-2 bg-white p-6 rounded-xl shadow-md">
-                <h3 class="text-lg font-semibold mb-4">Case Distribution by Age and Gender</h3>
+                <h3 class="text-lg font-semibold mb-4">Patient Demographics (Age & Sex)</h3>
                 <div class="chart-container">
                     <canvas id="ageGenderChart"></canvas>
                 </div>
             </div>
             
             <div class="col-span-1 md:col-span-2 lg:col-span-2 bg-white p-6 rounded-xl shadow-md">
-                <h3 class="text-lg font-semibold mb-4">Symptom Prevalence at Diagnosis</h3>
+                <h3 class="text-lg font-semibold mb-4">Symptom Prevalence</h3>
                 <div class="chart-container">
                     <canvas id="symptomPrevalenceChart"></canvas>
                 </div>
             </div>
 
             <div class="col-span-1 md:col-span-2 lg:col-span-2 bg-white p-6 rounded-xl shadow-md">
-                <h3 class="text-lg font-semibold mb-4">Proportion of Comorbidities</h3>
+                <h3 class="text-lg font-semibold mb-4">Comorbidities (HIV & DM)</h3>
                 <div class="chart-container">
                     <canvas id="comorbiditiesChart"></canvas>
                 </div>
             </div>
             
             <div class="col-span-1 md:col-span-2 lg:col-span-2 bg-white p-6 rounded-xl shadow-md">
-                <h3 class="text-lg font-semibold mb-4">Distribution of Diagnostic Tests</h3>
+                <h3 class="text-lg font-semibold mb-4">Diagnostic Test Distribution</h3>
                 <div class="chart-container">
                     <canvas id="diagnosticTestChart"></canvas>
                 </div>
             </div>
 
             <div class="col-span-1 md:col-span-2 lg:col-span-4 bg-white p-6 rounded-xl shadow-md">
-                <h3 class="text-lg font-semibold mb-4">Diagnosis Outcomes</h3>
+                <h3 class="text-lg font-semibold mb-4">Final Diagnosis Outcomes</h3>
                 <div class="chart-container">
                     <canvas id="diagnosisOutcomesChart"></canvas>
                 </div>
@@ -164,10 +164,17 @@
                 </div>
             </div>
 
-            <div class="col-span-1 md:col-span-2 lg:col-span-4 bg-white p-6 rounded-xl shadow-md">
+            <div class="col-span-1 md:col-span-2 bg-white p-6 rounded-xl shadow-md">
                 <h3 class="text-lg font-semibold mb-4">TB Contact History vs. Diagnosis</h3>
                 <div class="chart-container">
                     <canvas id="contactHistoryChart"></canvas>
+                </div>
+            </div>
+
+            <div class="col-span-1 md:col-span-2 bg-white p-6 rounded-xl shadow-md">
+                <h3 class="text-lg font-semibold mb-4">Previous TB History vs. Diagnosis</h3>
+                <div class="chart-container">
+                    <canvas id="prevTbHistoryChart"></canvas>
                 </div>
             </div>
 
@@ -203,14 +210,14 @@
             </div>
 
             <div class="col-span-1 md:col-span-2 bg-white p-6 rounded-xl shadow-md">
-                <h3 class="text-lg font-semibold mb-4">Model Performance Comparison</h3>
+                <h3 class="text-lg font-semibold mb-4">Model Performance Comparison (AUC)</h3>
                 <div class="chart-container">
                     <canvas id="modelComparisonChart"></canvas>
                 </div>
             </div>
 
             <div class="col-span-1 md:col-span-2 bg-white p-6 rounded-xl shadow-md">
-                <h3 class="text-lg font-semibold mb-4">Feature Importance</h3>
+                <h3 class="text-lg font-semibold mb-4">Predictor Importance (from Random Forest)</h3>
                 <div class="chart-container">
                     <canvas id="featureImportanceChart"></canvas>
                 </div>
@@ -222,14 +229,14 @@
             </div>
 
             <div class="col-span-1 md:col-span-2 bg-white p-6 rounded-xl shadow-md">
-                <h3 class="text-lg font-semibold mb-4">Symptom Clusters</h3>
+                <h3 class="text-lg font-semibold mb-4">TB Prevalence by Age Group and Sex</h3>
                 <div class="chart-container">
-                    <canvas id="symptomClustersChart"></canvas>
+                    <canvas id="prevalenceByDemographicsChart"></canvas>
                 </div>
             </div>
 
             <div class="col-span-1 md:col-span-2 bg-white p-6 rounded-xl shadow-md">
-                <h3 class="text-lg font-semibold mb-4">High-Risk Subgroups</h3>
+                <h3 class="text-lg font-semibold mb-4">High-Risk Subgroups Analysis</h3>
                 <div class="chart-container">
                     <canvas id="highRiskSubgroupsChart"></canvas>
                 </div>
@@ -246,8 +253,8 @@
                                 <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Age</th>
                                 <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Gender</th>
                                 <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Diagnosis</th>
-                                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Registration Date</th>
-                                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Status</th>
+                                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">CXR Result</th>
+                                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">GeneXpert</th>
                             </tr>
                         </thead>
                         <tbody id="patient-table-body" class="bg-white divide-y divide-gray-200">
@@ -270,32 +277,24 @@
 
         // --- Mock Data ---
         const patientData = [
-            { id: 'PAT-00891', age: 45, gender: 'Male', diagnosis: 'Confirmed TB', date: '2025-09-22', status: 'Active Treatment' },
-            { id: 'PAT-00890', age: 31, gender: 'Female', diagnosis: 'Confirmed TB', date: '2025-09-21', status: 'Active Treatment' },
-            { id: 'PAT-00889', age: 68, gender: 'Male', diagnosis: 'Clinically Diagnosed', date: '2025-09-21', status: 'Cured' },
-            { id: 'PAT-00888', age: 22, gender: 'Female', diagnosis: 'No TB', date: '2025-09-19', status: 'Discharged' },
-            { id: 'PAT-00887', age: 53, gender: 'Male', diagnosis: 'Confirmed TB', date: '2025-09-18', status: 'Completed' },
+            { id: 'NROR0005', age: 41, gender: 'Female', diagnosis: 'No_TB', cxr: 'Normal', genexpert: 'Not_Done' },
+            { id: 'NROR0006', age: 43, gender: 'Female', diagnosis: 'No_TB', cxr: 'Normal', genexpert: 'Not_Done' },
+            { id: 'NROR0007', age: 42, gender: 'Male', diagnosis: 'No_TB', cxr: 'Normal', genexpert: 'Not_Done' },
+            { id: 'NROR0008', age: 25, gender: 'Male', diagnosis: 'TB', cxr: 'Abnormal', genexpert: 'MTB_Detected' },
+            { id: 'NROR0009', age: 55, gender: 'Female', diagnosis: 'No_TB', cxr: 'Normal', genexpert: 'Not_Done' },
         ];
         
         // --- Populate Table ---
         const tableBody = document.getElementById('patient-table-body');
         patientData.forEach(patient => {
             const row = document.createElement('tr');
-            const statusColor = patient.status === 'Active Treatment' ? 'bg-yellow-100 text-yellow-800' :
-                                patient.status === 'Cured' ? 'bg-green-100 text-green-800' :
-                                patient.status === 'Completed' ? 'bg-blue-100 text-blue-800' :
-                                'bg-gray-100 text-gray-800';
             row.innerHTML = `
                 <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">${patient.id}</td>
                 <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">${patient.age}</td>
                 <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">${patient.gender}</td>
                 <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">${patient.diagnosis}</td>
-                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">${patient.date}</td>
-                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                    <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full ${statusColor}">
-                        ${patient.status}
-                    </span>
-                </td>
+                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">${patient.cxr}</td>
+                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">${patient.genexpert}</td>
             `;
             tableBody.appendChild(row);
         });
@@ -308,25 +307,21 @@
         new Chart(ageGenderCtx, {
             type: 'bar',
             data: {
-                labels: ['0-14', '15-24', '25-44', '45-64', '65+'],
+                labels: ['0-4', '5-14', '15-54', '>54'],
                 datasets: [
                     {
                         label: 'Male',
-                        data: [45, 180, 290, 210, 110],
+                        data: [150, 500, 10000, 2000],
                         backgroundColor: 'rgba(59, 130, 246, 0.7)',
-                        borderColor: 'rgba(59, 130, 246, 1)',
-                        borderWidth: 1
                     },
                     {
                         label: 'Female',
-                        data: [35, 160, 250, 180, 95],
+                        data: [180, 600, 11184, 2229],
                         backgroundColor: 'rgba(236, 72, 153, 0.7)',
-                        borderColor: 'rgba(236, 72, 153, 1)',
-                        borderWidth: 1
                     }
                 ]
             },
-            options: { responsive: true, maintainAspectRatio: false, scales: { y: { beginAtZero: true, title: { display: true, text: 'Number of Patients' } }, x: { title: { display: true, text: 'Age Group' } } }, plugins: { tooltip: { mode: 'index', intersect: false }, legend: { position: 'top' } } }
+            options: { responsive: true, maintainAspectRatio: false, scales: { y: { beginAtZero: true, title: { display: true, text: 'Number of Patients' } }, x: { title: { display: true, text: 'Age Group' } } } }
         });
 
         // 2. Symptom Prevalence Chart
@@ -334,13 +329,11 @@
         new Chart(symptomPrevalenceCtx, {
             type: 'bar',
             data: {
-                labels: ['Persistent Cough (>2 weeks)', 'Fever', 'Weight Loss', 'Night Sweats', 'Chest Pain', 'Fatigue'],
+                labels: ['Cough', 'Fever', 'Weight_Loss', 'Tiredness', 'Hemoptysis', 'Night_Sweat'],
                 datasets: [{
                     label: 'Prevalence (%)',
-                    data: [88, 75, 68, 55, 45, 62],
+                    data: [30, 25, 20, 18, 5, 15],
                     backgroundColor: 'rgba(239, 68, 68, 0.7)',
-                    borderColor: 'rgba(239, 68, 68, 1)',
-                    borderWidth: 1
                 }]
             },
             options: { indexAxis: 'y', responsive: true, maintainAspectRatio: false, plugins: { legend: { display: false } }, scales: { x: { title: { display: true, text: 'Prevalence (%)' } } } }
@@ -349,18 +342,12 @@
         // 3. Comorbidities Chart
         const comorbiditiesCtx = document.getElementById('comorbiditiesChart').getContext('2d');
         new Chart(comorbiditiesCtx, {
-            type: 'bar',
+            type: 'pie',
             data: {
-                labels: ['Diabetes Mellitus', 'HIV/AIDS', 'Chronic Lung Disease', 'Malnutrition', 'Chronic Kidney Disease'],
-                datasets: [{
-                    label: 'Number of Patients',
-                    data: [680, 415, 350, 280, 190],
-                    backgroundColor: 'rgba(139, 92, 246, 0.7)',
-                    borderColor: 'rgba(139, 92, 246, 1)',
-                    borderWidth: 1
-                }]
+                labels: ['HIV Positive', 'DM Positive', 'Unknown/Negative'],
+                datasets: [{ data: [3000, 5000, 21138], backgroundColor: ['#F59E0B', '#EF4444', '#D1D5DB'] }]
             },
-            options: { indexAxis: 'y', responsive: true, maintainAspectRatio: false, plugins: { legend: { display: false } }, scales: { x: { title: { display: true, text: 'Number of Patients' } } } }
+            options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { position: 'bottom' } } }
         });
 
         // 4. Diagnostic Test Distribution
@@ -368,13 +355,13 @@
         new Chart(diagnosticTestCtx, {
             type: 'doughnut',
             data: {
-                labels: ['GeneXpert', 'Sputum Smear Microscopy', 'Chest X-Ray (CXR)', 'Culture'],
+                labels: ['GeneXpert', 'Sputum R1', 'Sputum R2', 'CXR'],
                 datasets: [{
-                    data: [1250, 980, 1650, 450],
-                    backgroundColor: ['#10B981', '#3B82F6', '#F59E0B', '#6366F1'],
+                    data: [10000, 12000, 8000, 25000],
+                    backgroundColor: ['#10B981', '#3B82F6', '#6366F1', '#F97316'],
                 }]
             },
-            options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { position: 'bottom', labels: { padding: 20 } } } }
+            options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { position: 'bottom' } } }
         });
 
         // 5. Diagnosis Outcomes Chart
@@ -382,13 +369,10 @@
         new Chart(diagnosisOutcomesCtx, {
             type: 'pie',
             data: {
-                labels: ['Confirmed TB', 'No TB', 'Clinically diagnosed TB'],
-                datasets: [{
-                    data: [1542, 250, 100],
-                    backgroundColor: ['#10B981', '#EF4444', '#F59E0B'],
-                }]
+                labels: ['No_TB', 'TB', 'Clinically Diagnosed' ],
+                datasets: [{ data: [25000, 4000, 138], backgroundColor: ['#10B981', '#EF4444', '#F59E0B'] }]
             },
-            options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { position: 'bottom', labels: { padding: 20 } } } }
+            options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { position: 'bottom' } } }
         });
 
         // 6. Symptoms vs. TB Diagnosis
@@ -447,12 +431,29 @@
             options: { responsive: true, maintainAspectRatio: false, scales: { y: { beginAtZero: true, max: 100, title: { display: true, text: 'Percentage (%)' } } } }
         });
 
+        // 8.5. Previous TB History vs. Diagnosis
+        const prevTbHistoryCtx = document.getElementById('prevTbHistoryChart').getContext('2d');
+        new Chart(prevTbHistoryCtx, {
+            type: 'bar',
+            data: {
+                labels: ['Previous TB', 'No Previous TB'],
+                datasets: [
+                    {
+                        label: 'TB Positive Rate (%)',
+                        data: [75, 25],
+                        backgroundColor: 'rgba(139, 92, 246, 0.7)',
+                    }
+                ]
+            },
+            options: { responsive: true, maintainAspectRatio: false, scales: { y: { beginAtZero: true, max: 100, title: { display: true, text: 'Percentage (%)' } } } }
+        });
+
         // 9. Sensitivity and Specificity Chart
         const sensitivitySpecificityCtx = document.getElementById('sensitivitySpecificityChart').getContext('2d');
         new Chart(sensitivitySpecificityCtx, {
             type: 'bar',
             data: {
-                labels: ['GeneXpert', 'Sputum Smear (R1/R2)', 'CXR'],
+                labels: ['GeneXpert', 'Sputum R1', 'CXR'],
                 datasets: [
                     {
                         label: 'Sensitivity',
@@ -466,20 +467,7 @@
                     }
                 ]
             },
-            options: {
-                responsive: true,
-                maintainAspectRatio: false,
-                scales: {
-                    y: {
-                        beginAtZero: true,
-                        max: 100,
-                        title: { display: true, text: 'Percentage (%)' }
-                    }
-                },
-                plugins: {
-                    legend: { position: 'top' },
-                }
-            }
+            options: { responsive: true, maintainAspectRatio: false, scales: { y: { beginAtZero: true, max: 100, title: { display: true, text: 'Percentage (%)' } } } }
         });
 
         // 10. Predictive Values Chart
@@ -487,7 +475,7 @@
         new Chart(predictiveValuesCtx, {
             type: 'bar',
             data: {
-                labels: ['GeneXpert', 'Sputum Smear (R1/R2)', 'CXR'],
+                labels: ['GeneXpert', 'Sputum R1', 'CXR'],
                 datasets: [
                     {
                         label: 'Positive Predictive Value (PPV)',
@@ -501,20 +489,7 @@
                     }
                 ]
             },
-            options: {
-                responsive: true,
-                maintainAspectRatio: false,
-                scales: {
-                    y: {
-                        beginAtZero: true,
-                        max: 100,
-                        title: { display: true, text: 'Percentage (%)' }
-                    }
-                },
-                plugins: {
-                    legend: { position: 'top' },
-                }
-            }
+            options: { responsive: true, maintainAspectRatio: false, scales: { y: { beginAtZero: true, max: 100, title: { display: true, text: 'Percentage (%)' } } } }
         });
 
         // 11. Concordance Chart
@@ -522,38 +497,15 @@
         new Chart(concordanceCtx, {
             type: 'radar',
             data: {
-                labels: ['GeneXpert vs Culture', 'Sputum vs Culture', 'CXR vs Final Dx', 'GeneXpert vs Sputum', 'GeneXpert vs CXR'],
+                labels: ['GeneXpert vs Sputum R1', 'Sputum R1 vs Sputum R2', 'CXR vs GeneXpert', 'Sputum R1 vs CXR'],
                 datasets: [{
                     label: 'Concordance Rate (Kappa)',
-                    data: [0.92, 0.80, 0.65, 0.75, 0.70],
-                    fill: true,
+                    data: [0.85, 0.92, 0.65, 0.70],
                     backgroundColor: 'rgba(255, 99, 132, 0.2)',
                     borderColor: 'rgb(255, 99, 132)',
-                    pointBackgroundColor: 'rgb(255, 99, 132)',
-                    pointBorderColor: '#fff',
-                    pointHoverBackgroundColor: '#fff',
-                    pointHoverBorderColor: 'rgb(255, 99, 132)'
                 }]
             },
-            options: {
-                responsive: true,
-                maintainAspectRatio: false,
-                scales: {
-                    r: {
-                        angleLines: { display: true },
-                        suggestedMin: 0,
-                        suggestedMax: 1,
-                        pointLabels: {
-                            font: {
-                                size: 12
-                            }
-                        }
-                    }
-                },
-                plugins: {
-                    legend: { display: true, position: 'top' }
-                }
-            }
+            options: { responsive: true, maintainAspectRatio: false, scales: { r: { suggestedMin: 0, suggestedMax: 1 } } }
         });
 
         // 12. Model Performance Comparison
@@ -561,21 +513,16 @@
         new Chart(modelComparisonCtx, {
             type: 'bar',
             data: {
-                labels: ['Logistic Regression', 'Decision Tree', 'Random Forest'],
+                labels: ['Logistic Regression', 'Decision Tree', 'Random Forest', 'XGBoost'],
                 datasets: [
                     {
-                        label: 'Accuracy',
-                        data: [85, 88, 92],
+                        label: 'AUC Score',
+                        data: [0.88, 0.85, 0.92, 0.94],
                         backgroundColor: 'rgba(37, 99, 235, 0.7)',
-                    },
-                    {
-                        label: 'AUC',
-                        data: [0.88, 0.90, 0.94],
-                        backgroundColor: 'rgba(219, 39, 119, 0.7)',
                     }
                 ]
             },
-            options: { responsive: true, maintainAspectRatio: false, scales: { y: { beginAtZero: true, max: 100, title: { display: true, text: 'Score' } } } }
+            options: { responsive: true, maintainAspectRatio: false, scales: { y: { beginAtZero: true, max: 1, title: { display: true, text: 'Area Under Curve (AUC)' } } } }
         });
 
         // 13. Feature Importance
@@ -583,51 +530,51 @@
         new Chart(featureImportanceCtx, {
             type: 'bar',
             data: {
-                labels: ['GeneXpert', 'Cough', 'HIV', 'Contact History', 'Age'],
+                labels: ['GeneXpertMTB', 'CXR_results', 'Cough', 'TB_Contact_History', 'Age', 'HIV', 'DM'],
                 datasets: [{
                     label: 'Importance',
-                    data: [0.4, 0.25, 0.15, 0.1, 0.1],
+                    data: [0.45, 0.20, 0.12, 0.10, 0.08, 0.03, 0.02],
                     backgroundColor: 'rgba(79, 70, 229, 0.7)',
                 }]
             },
-            options: { indexAxis: 'y', responsive: true, maintainAspectRatio: false, plugins: { legend: { display: false } } }
+            options: { indexAxis: 'y', responsive: true, maintainAspectRatio: false, plugins: { legend: { display: false } }, scales: { x: { title: { display: true, text: 'Predictor Importance Score' } } } }
         });
 
-        // 14. Symptom Clusters
-        const symptomClustersCtx = document.getElementById('symptomClustersChart').getContext('2d');
-        new Chart(symptomClustersCtx, {
-            type: 'bubble',
+        // 14. TB Prevalence by Age Group and Sex
+        const prevalenceByDemographicsCtx = document.getElementById('prevalenceByDemographicsChart').getContext('2d');
+        new Chart(prevalenceByDemographicsCtx, {
+            type: 'bar',
             data: {
+                labels: ['0-4', '5-14', '15-54', '>54'],
                 datasets: [
                     {
-                        label: 'Cough + Fever',
-                        data: [{x: 20, y: 30, r: 15}],
-                        backgroundColor: 'rgba(255, 99, 132, 0.7)'
+                        label: 'Male TB Rate (%)',
+                        data: [5, 10, 25, 30],
+                        backgroundColor: 'rgba(59, 130, 246, 0.7)',
                     },
                     {
-                        label: 'Weight Loss + Night Sweats',
-                        data: [{x: 40, y: 50, r: 20}],
-                        backgroundColor: 'rgba(54, 162, 235, 0.7)'
+                        label: 'Female TB Rate (%)',
+                        data: [4, 8, 22, 28],
+                        backgroundColor: 'rgba(236, 72, 153, 0.7)',
                     }
                 ]
             },
-            options: { responsive: true, maintainAspectRatio: false }
+            options: { responsive: true, maintainAspectRatio: false, scales: { y: { beginAtZero: true, max: 100, title: { display: true, text: 'TB Positive Rate (%)' } } } }
         });
 
-        // 15. High-Risk Subgroups
+        // 15. High-Risk Subgroups Analysis
         const highRiskSubgroupsCtx = document.getElementById('highRiskSubgroupsChart').getContext('2d');
         new Chart(highRiskSubgroupsCtx, {
-            type: 'scatter',
+            type: 'bar',
             data: {
-                datasets: [
-                    {
-                        label: 'HIV+ with Abnormal CXR',
-                        data: [{x: 50, y: 60}, {x: 55, y: 65}],
-                        backgroundColor: 'rgba(255, 206, 86, 0.7)',
-                    }
-                ]
+                labels: ['HIV+ & Abnormal CXR', 'DM+ & Cough', 'Contact History & Age > 54'],
+                datasets: [{
+                    label: 'TB Positive Rate (%)',
+                    data: [70, 55, 65],
+                    backgroundColor: ['#F59E0B', '#EF4444', '#8B5CF6'],
+                }]
             },
-            options: { responsive: true, maintainAspectRatio: false }
+            options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { display: false } }, scales: { y: { beginAtZero: true, max: 100, title: { display: true, text: 'TB Positive Rate (%)' } } } }
         });
         
     </script>
