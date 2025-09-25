@@ -1,3 +1,6 @@
+// Initialize Mermaid for decision trees
+mermaid.initialize({ startOnLoad: true });
+
 // Set generation date
 document.getElementById('generation-date').textContent = new Date().toLocaleString();
 
@@ -414,6 +417,141 @@ new Chart(prevTbHistoryCtx, {
                 title: {
                     display: true,
                     text: 'Percentage (%)'
+                }
+            }
+        }
+    }
+});
+
+
+// 14. TB Prevalence by Age Group and Sex
+const prevalenceByDemographicsCtx = document.getElementById('prevalenceByDemographicsChart').getContext('2d');
+new Chart(prevalenceByDemographicsCtx, {
+    type: 'bar',
+    data: {
+        labels: ['0-14', '15-24', '25-44', '45-64', '65+'],
+        datasets: [
+            {
+                label: 'Male TB Rate (%)',
+                data: [5, 10, 25, 30, 20],
+                backgroundColor: 'rgba(59, 130, 246, 0.7)',
+            },
+            {
+                label: 'Female TB Rate (%)',
+                data: [3, 8, 20, 25, 15],
+                backgroundColor: 'rgba(236, 72, 153, 0.7)',
+            }
+        ]
+    },
+    options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        scales: {
+            y: {
+                beginAtZero: true,
+                title: {
+                    display: true,
+                    text: 'TB Rate (%)'
+                }
+            },
+            x: {
+                title: {
+                    display: true,
+                    text: 'Age Group'
+                }
+            }
+        }
+    }
+});
+
+// 15. High-Risk Subgroups Analysis
+const highRiskSubgroupsCtx = document.getElementById('highRiskSubgroupsChart').getContext('2d');
+new Chart(highRiskSubgroupsCtx, {
+    type: 'bar',
+    data: {
+        labels: ['HIV+ & Abnormal CXR', 'DM+ & Cough', 'Contact History & Age >54'],
+        datasets: [{
+            label: 'TB Positive Rate (%)',
+            data: [70, 55, 65],
+            backgroundColor: ['#F59E0B', '#EF4444', '#8B5CF6'],
+        }]
+    },
+    options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+            legend: {
+                display: false
+            }
+        },
+        scales: {
+            y: {
+                beginAtZero: true,
+                title: {
+                    display: true,
+                    text: 'TB Positive Rate (%)'
+                }
+            }
+        }
+    }
+});
+
+// 16. Model Performance Comparison (AUC)
+const modelComparisonCtx = document.getElementById('modelComparisonChart').getContext('2d');
+new Chart(modelComparisonCtx, {
+    type: 'bar',
+    data: {
+        labels: ['Logistic Regression', 'Decision Tree', 'Random Forest', 'XGBoost'],
+        datasets: [
+            {
+                label: 'AUC Score',
+                data: [0.88, 0.85, 0.92, 0.94],
+                backgroundColor: 'rgba(37, 99, 235, 0.7)',
+            }
+        ]
+    },
+    options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        scales: {
+            y: {
+                beginAtZero: true,
+                max: 1,
+                title: {
+                    display: true,
+                    text: 'Area Under Curve (AUC)'
+                }
+            }
+        }
+    }
+});
+
+// 17. Feature Importance (from Random Forest)
+const featureImportanceCtx = document.getElementById('featureImportanceChart').getContext('2d');
+new Chart(featureImportanceCtx, {
+    type: 'bar',
+    data: {
+        labels: ['GeneXpertMTB', 'CXR_results', 'Cough', 'TB_Contact_History', 'Age', 'HIV', 'DM'],
+        datasets: [{
+            label: 'Importance',
+            data: [0.45, 0.20, 0.12, 0.10, 0.08, 0.03, 0.02],
+            backgroundColor: 'rgba(79, 70, 229, 0.7)',
+        }]
+    },
+    options: {
+        indexAxis: 'y',
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+            legend: {
+                display: false
+            }
+        },
+        scales: {
+            x: {
+                title: {
+                    display: true,
+                    text: 'Predictor Importance Score'
                 }
             }
         }
