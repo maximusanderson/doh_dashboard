@@ -244,3 +244,39 @@ new Chart(patientJourneySankeyCtx, {
     },
     options: { responsive: true, maintainAspectRatio: false }
 });
+
+// 9. Symptom Prevalence in TB+ Cases (Doughnut Chart)
+const symptomTBCtx = document.getElementById('symptomTBChart').getContext('2d');
+new Chart(symptomTBCtx, {
+    type: 'doughnut',
+    data: {
+        labels: ['Cough', 'Fever', 'Weight Loss', 'Night Sweats', 'Fatigue', 'Hemoptysis'],
+        datasets: [{
+            data: [85, 72, 68, 61, 58, 23],
+            backgroundColor: [
+                'rgba(102, 126, 234, 0.8)',
+                'rgba(118, 75, 162, 0.8)',
+                'rgba(237, 137, 54, 0.8)',
+                'rgba(72, 187, 120, 0.8)',
+                'rgba(245, 101, 101, 0.8)',
+                'rgba(159, 122, 234, 0.8)'
+            ]
+        }]
+    },
+    options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+            legend: {
+                position: 'right'
+            },
+            tooltip: {
+                callbacks: {
+                    label: function(context) {
+                        return context.label + ': ' + context.parsed + '%';
+                    }
+                }
+            }
+        }
+    }
+});
