@@ -1,0 +1,193 @@
+================================================================================
+                       TB CLINICAL DATA DASHBOARD
+                         HOW TO RUN INSTRUCTIONS
+================================================================================
+
+OVERVIEW:
+This dashboard displays real TB clinical data analysis with 17 different
+visualizations including demographics, symptoms, risk factors, and diagnostic
+performance metrics.
+
+================================================================================
+PREREQUISITES:
+================================================================================
+
+1. Python (any recent version - 3.6+ recommended)
+   - Check if installed: python --version
+   - If not installed, download from: https://python.org
+
+2. Modern web browser (Chrome, Firefox, Safari, Edge)
+
+3. All required files in the same directory:
+   ✓ index.html
+   ✓ analysis_results.json
+   ✓ js/index.js
+   ✓ css/style.css
+   ✓ mockup_data.xlsx (original data)
+   ✓ mockup_data.csv (generated CSV)
+
+================================================================================
+STEP-BY-STEP INSTRUCTIONS:
+================================================================================
+
+STEP 1: Open Terminal/Command Prompt
+   - On Mac: Press Cmd+Space, type "Terminal", press Enter
+   - On Windows: Press Win+R, type "cmd", press Enter
+   - On Linux: Press Ctrl+Alt+T
+
+STEP 2: Navigate to Project Directory
+   cd /your_folder_path/mockup
+
+   (Replace with your actual path)
+
+STEP 3: Run the Analysis Script (IMPORTANT - Do this first!)
+   python analyze_tb_data.py
+
+   This will:
+   - Read your mockup_data.xlsx file
+   - Perform all 17 types of analysis
+   - Generate analysis_results.json (required for dashboard)
+   - Generate CSV files for external use
+
+   You should see output ending with:
+   "Analysis complete!"
+   "Generated files: analysis_results.json, mockup_data.csv, etc."
+
+STEP 4: Start HTTP Server
+   Try these ports in order until one works:
+
+   python -m http.server 3000
+
+   If that fails with "Address already in use", try:
+   python -m http.server 8081
+
+   Or try:
+   python -m http.server 9000
+
+STEP 4: Verify Server is Running
+   You should see output like:
+   "Serving HTTP on 0.0.0.0 port 3000 (http://0.0.0.0:3000/) ..."
+
+STEP 5: Open Dashboard in Browser
+   Open your web browser and go to:
+   http://localhost:3000/index.html
+
+   (Replace 3000 with whatever port worked in Step 4)
+
+STEP 6: Verify Dashboard Loaded
+   You should see:
+   ✓ Page loads without errors
+   ✓ 17 different charts with real data
+   ✓ Test performance table with calculated values
+   ✓ Risk stratification matrix with percentages
+   ✓ Browser console shows "Analysis data loaded successfully"
+
+STEP 7: Stop Server When Done
+   Press Ctrl+C in the terminal to stop the server
+
+================================================================================
+TROUBLESHOOTING:
+================================================================================
+
+PROBLEM: "Address already in use" error
+SOLUTION: Try different ports (3000, 8081, 9000, 5000, 4000)
+
+PROBLEM: Charts not loading or showing "Error loading analysis data"
+SOLUTION:
+   - Make sure analysis_results.json exists in the same folder
+   - Check browser console for error messages
+   - Verify you're using http:// not file:// in browser
+
+PROBLEM: Blank charts or no data
+SOLUTION:
+   - Re-run the analysis script: python analyze_tb_data.py
+   - Refresh browser page after regenerating JSON
+
+PROBLEM: Python not found
+SOLUTION: Install Python from https://python.org or use python3 instead
+
+================================================================================
+WHAT YOU SHOULD SEE:
+================================================================================
+
+The dashboard displays:
+
+1. DESCRIPTIVE ANALYSIS:
+   - Patient Demographics (Age & Sex) - Real counts from your 100 patients
+   - Symptom Prevalence - Actual percentages from your data
+   - Comorbidities (HIV & DM) - Real distribution
+   - Diagnostic Test Distribution - Actual test usage
+
+2. RISK STRATIFICATION:
+   - TB Distribution by Age & Sex (Pyramid chart)
+   - Risk Score Calculator (interactive)
+
+3. SYMPTOM PATTERN RECOGNITION:
+   - Symptom Combination Heatmap
+   - Symptom-Test Correlation Matrix
+   - Patient Journey (Sankey diagram)
+
+4. RISK FACTOR ANALYSIS:
+   - Symptoms vs TB Diagnosis
+   - HIV/DM Influence on TB Positivity
+   - TB Contact History vs Diagnosis
+   - Previous TB History vs Diagnosis
+
+5. EPIDEMIOLOGICAL ANALYSIS:
+   - TB Prevalence by Age Group and Sex
+   - High-Risk Subgroups Analysis
+   - Diagnostic Test Performance Metrics (table)
+   - Patient Risk Stratification Matrix
+
+6. PREDICTIVE MODELING:
+   - Model Performance Comparison
+   - Feature Importance Rankings
+
+================================================================================
+FILE OVERVIEW:
+================================================================================
+
+GENERATED FILES:
+- analysis_results.json    Main data file (dashboard reads this)
+- mockup_data.csv         Your original data as CSV
+- demographics.csv        Age/sex analysis results
+- symptoms_analysis.csv   Symptom prevalence data
+- test_performance.csv    Diagnostic test metrics
+
+DASHBOARD FILES:
+- index.html             Main dashboard page
+- js/index.js           Chart configurations (uses real data)
+- css/style.css         Styling
+- analyze_tb_data.py    Analysis script (generates JSON)
+
+================================================================================
+SCALING TO 30K RECORDS:
+================================================================================
+
+To use with your full 30K patient dataset:
+
+1. Replace mockup_data.xlsx with your full dataset
+2. Make sure column names match exactly:
+   - ID, Age, Age_Group, Sex, CXR_results, Cough, Fever, Weight_Loss,
+   - Tiredness, Hemoptysis, Night_Sweat, Symptom_Cumulative, DM, HIV,
+   - TB_Contact_History, TB_History, Sputum_R1, R1_Grading, Sputum_R2,
+   - R2_Grading, GeneXpertMTB, Diagnosis
+
+3. Re-run analysis: python analyze_tb_data.py
+4. Refresh dashboard in browser
+
+The dashboard will automatically display statistics from your full dataset!
+
+================================================================================
+SUPPORT:
+================================================================================
+
+If you encounter issues:
+1. Check browser console for error messages (F12 → Console)
+2. Verify all files are present in the correct directory
+3. Ensure analysis_results.json was generated successfully
+4. Try different ports if getting "Address in use" errors
+
+Dashboard created for TB clinical data analysis and epidemiological review.
+
+================================================================================
