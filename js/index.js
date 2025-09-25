@@ -160,3 +160,87 @@ new Chart(ageSexPyramidCtx, {
         plugins: { tooltip: { callbacks: { label: (context) => `${context.dataset.label}: ${Math.abs(context.raw)}` } } }
     }
 });
+
+// 6. Symptom Combination Heatmap (Placeholder with sample data)
+const symptomHeatmapCtx = document.getElementById('symptomHeatmapChart').getContext('2d');
+new Chart(symptomHeatmapCtx, {
+    type: 'bar',
+    data: {
+        labels: ['Cough+Fever', 'Cough+Weight Loss', 'Fever+Night Sweats', 'Cough+Hemoptysis', 'All Symptoms'],
+        datasets: [{
+            label: 'Diagnostic Yield (%)',
+            data: [45, 38, 29, 65, 78],
+            backgroundColor: [
+                'rgba(239, 68, 68, 0.8)',
+                'rgba(245, 101, 101, 0.8)',
+                'rgba(248, 113, 113, 0.8)',
+                'rgba(239, 68, 68, 0.9)',
+                'rgba(220, 38, 38, 0.9)'
+            ]
+        }]
+    },
+    options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+            legend: { display: false }
+        },
+        scales: {
+            y: {
+                beginAtZero: true,
+                max: 100,
+                title: { display: true, text: 'Diagnostic Yield (%)' }
+            }
+        }
+    }
+});
+
+// 7. Symptom-Test Correlation Matrix (Placeholder with sample data)
+const symptomCorrelationCtx = document.getElementById('symptomCorrelationChart').getContext('2d');
+new Chart(symptomCorrelationCtx, {
+    type: 'bar',
+    data: {
+        labels: ['Cough→GeneXpert', 'Fever→CXR', 'Weight Loss→Sputum', 'Night Sweats→CXR', 'Hemoptysis→GeneXpert'],
+        datasets: [{
+            label: 'Correlation Strength',
+            data: [0.85, 0.62, 0.71, 0.58, 0.93],
+            backgroundColor: 'rgba(79, 70, 229, 0.7)'
+        }]
+    },
+    options: {
+        indexAxis: 'y',
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+            legend: { display: false }
+        },
+        scales: {
+            x: {
+                beginAtZero: true,
+                max: 1,
+                title: { display: true, text: 'Correlation Coefficient' }
+            }
+        }
+    }
+});
+
+// 8. Patient Journey Sankey Diagram
+const patientJourneySankeyCtx = document.getElementById('patientJourneySankey').getContext('2d');
+new Chart(patientJourneySankeyCtx, {
+    type: 'sankey',
+    data: {
+        datasets: [{
+            data: [
+                { from: 'Symptoms', to: 'CXR', flow: 1500 },
+                { from: 'Symptoms', to: 'GeneXpert', flow: 1000 },
+                { from: 'CXR', to: 'TB Diagnosis', flow: 800 },
+                { from: 'CXR', to: 'No TB', flow: 700 },
+                { from: 'GeneXpert', to: 'TB Diagnosis', flow: 900 },
+                { from: 'GeneXpert', to: 'No TB', flow: 100 },
+            ],
+            colorFrom: '#3B82F6',
+            colorTo: '#10B981',
+        }]
+    },
+    options: { responsive: true, maintainAspectRatio: false }
+});
