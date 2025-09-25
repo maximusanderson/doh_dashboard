@@ -280,3 +280,142 @@ new Chart(symptomTBCtx, {
         }
     }
 });
+
+// 10. Symptoms vs. TB Diagnosis
+const symptomsVsTbCtx = document.getElementById('symptomsVsTbChart').getContext('2d');
+new Chart(symptomsVsTbCtx, {
+    type: 'bar',
+    data: {
+        labels: ['Cough', 'Fever', 'Weight Loss'],
+        datasets: [
+            {
+                label: 'TB Positive',
+                data: [90, 80, 70],
+                backgroundColor: 'rgba(239, 68, 68, 0.7)',
+            },
+            {
+                label: 'TB Negative',
+                data: [30, 40, 20],
+                backgroundColor: 'rgba(59, 130, 246, 0.7)',
+            }
+        ]
+    },
+    options: { responsive: true, maintainAspectRatio: false, scales: { y: { beginAtZero: true, title: { display: true, text: 'Percentage (%)' } } } }
+});
+
+// 11. HIV/DM Influence on TB Positivity
+const comorbidityInfluenceCtx = document.getElementById('comorbidityInfluenceChart').getContext('2d');
+new Chart(comorbidityInfluenceCtx, {
+    type: 'bar',
+    data: {
+        labels: ['HIV', 'DM'],
+        datasets: [
+            {
+                label: 'TB Positive Rate (%)',
+                data: [45, 30],
+                backgroundColor: [
+                    'rgba(218, 165, 32, 0.8)',   // Gold color for HIV
+                    'rgba(218, 165, 32, 0.8)'    // Gold color for DM
+                ]
+            }
+        ]
+    },
+    options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+            legend: {
+                display: true,
+                position: 'top'
+            }
+        },
+        scales: {
+            y: {
+                beginAtZero: true,
+                max: 100,
+                title: {
+                    display: true,
+                    text: 'Percentage (%)'
+                }
+            }
+        }
+    }
+});
+
+// 12. TB Contact History vs. Diagnosis
+const contactHistoryCtx = document.getElementById('contactHistoryChart').getContext('2d');
+new Chart(contactHistoryCtx, {
+    type: 'bar',
+    data: {
+        labels: ['Contact History', 'No Contact History'],
+        datasets: [
+            {
+                label: 'TB Positive Rate (%)',
+                data: [60, 15],
+                backgroundColor: [
+                    'rgba(134, 187, 159, 0.8)',  // Green color for Contact History
+                    'rgba(134, 187, 159, 0.8)'   // Green color for No Contact History
+                ]
+            }
+        ]
+    },
+    options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+            legend: {
+                display: true,
+                position: 'top'
+            }
+        },
+        scales: {
+            y: {
+                beginAtZero: true,
+                max: 100,
+                title: {
+                    display: true,
+                    text: 'Percentage (%)'
+                }
+            }
+        }
+    }
+});
+
+// 13. Previous TB History vs. Diagnosis
+const prevTbHistoryCtx = document.getElementById('prevTbHistoryChart').getContext('2d');
+new Chart(prevTbHistoryCtx, {
+    type: 'bar',
+    data: {
+        labels: ['Previous TB', 'No Previous TB'],
+        datasets: [
+            {
+                label: 'TB Positive Rate (%)',
+                data: [75, 25],
+                backgroundColor: [
+                    'rgba(147, 120, 234, 0.8)',  // Purple color for Previous TB
+                    'rgba(147, 120, 234, 0.8)'   // Purple color for No Previous TB
+                ]
+            }
+        ]
+    },
+    options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+            legend: {
+                display: true,
+                position: 'top'
+            }
+        },
+        scales: {
+            y: {
+                beginAtZero: true,
+                max: 100,
+                title: {
+                    display: true,
+                    text: 'Percentage (%)'
+                }
+            }
+        }
+    }
+});
