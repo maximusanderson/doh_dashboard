@@ -119,3 +119,44 @@ new Chart(diagnosticTestCtx, {
         }
     }
 });
+
+// 5. Age-Sex Pyramid Chart
+const ageSexPyramidCtx = document.getElementById('ageSexPyramidChart').getContext('2d');
+new Chart(ageSexPyramidCtx, {
+    type: 'bar',
+    data: {
+        labels: ['0-14', '15-24', '25-44', '45-64', '65+'],
+        datasets: [
+            {
+                label: 'Male',
+                data: [-45, -180, -290, -210, -110], // Negative values for left side
+                backgroundColor: 'rgba(59, 130, 246, 0.7)',
+                barPercentage: 0.9,
+                categoryPercentage: 0.8
+            },
+            {
+                label: 'Female',
+                data: [35, 160, 250, 180, 95],
+                backgroundColor: 'rgba(236, 72, 153, 0.7)',
+                barPercentage: 0.9,
+                categoryPercentage: 0.8
+            }
+        ]
+    },
+    options: {
+        indexAxis: 'y',
+        responsive: true,
+        maintainAspectRatio: false,
+        scales: {
+            x: {
+                stacked: true,
+                ticks: {
+                    callback: (value) => Math.abs(value) // Display absolute values
+                },
+                title: { display: true, text: 'Number of Patients' }
+            },
+            y: { stacked: true, title: { display: true, text: 'Age Group' } }
+        },
+        plugins: { tooltip: { callbacks: { label: (context) => `${context.dataset.label}: ${Math.abs(context.raw)}` } } }
+    }
+});
