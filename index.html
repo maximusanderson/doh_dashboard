@@ -12,15 +12,14 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
 </head>
-<body class="antialiased text-gray-800">
+<body class="antialiased text-gray-800" style="background-color: rgb(236, 236, 236);">
     <div class="container mx-auto p-4 md:p-6 lg:p-8">
 
         <!-- Header Section -->
         <header class="mb-8">
             <div class="flex flex-col md:flex-row justify-between items-center">
                 <div>
-                    <h1 class="text-3xl font-bold text-gray-900">Tuberculosis (TB) Clinical Data Dashboard</h1>
-                    <p class="mt-1 text-md text-gray-600">A comprehensive analysis for clinical and epidemiological review based on raw data.</p>
+                    <h1 class="text-4xl font-bold text-gray-900 mb-2">A comprehensive analysis for clinical and epidemiological review based on raw data.</h1>
                 </div>
                 <div class="mt-4 md:mt-0 flex items-center space-x-2 bg-white p-2 rounded-lg shadow-sm">
                      <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-500" viewBox="0 0 20 20" fill="currentColor">
@@ -41,8 +40,8 @@
         <main class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
 
             <!-- 1. Descriptive Analysis Section -->
-            <div class="col-span-1 md:col-span-2 lg:col-span-4 bg-gradient-to-r from-blue-600 to-purple-600 p-6 rounded-xl shadow-lg">
-                <h3 class="text-3xl font-bold mb-4 text-center text-white">1. Descriptive Analysis</h3>
+            <div class="col-span-1 md:col-span-2 lg:col-span-4">
+                <h3 class="text-3xl font-bold mb-4 text-left text-gray-900">1. Descriptive Analysis</h3>
             </div>
 
             <div class="col-span-1 md:col-span-2 lg:col-span-2 bg-white p-6 rounded-xl shadow-md">
@@ -74,8 +73,8 @@
             </div>
 
             <!-- 2. Patient Demographics and Risk Stratification -->
-            <div class="col-span-1 md:col-span-2 lg:col-span-4 bg-gradient-to-r from-green-600 to-teal-600 p-6 rounded-xl shadow-lg">
-                <h3 class="text-3xl font-bold mb-4 text-center text-white">2. Patient Demographics and Risk Stratification</h3>
+            <div class="col-span-1 md:col-span-2 lg:col-span-4">
+                <h3 class="text-3xl font-bold mb-4 text-left text-gray-900">2. Patient Demographics and Risk Stratification</h3>
             </div>
 
             <div class="col-span-1 md:col-span-2 bg-white p-6 rounded-xl shadow-md">
@@ -127,8 +126,8 @@
             </div>
 
             <!-- 3. Symptom Pattern Recognition -->
-            <div class="col-span-1 md:col-span-2 lg:col-span-4 bg-gradient-to-r from-orange-600 to-red-600 p-6 rounded-xl shadow-lg">
-                <h3 class="text-3xl font-bold mb-4 text-center text-white">3. Symptom Pattern Recognition</h3>
+            <div class="col-span-1 md:col-span-2 lg:col-span-4">
+                <h3 class="text-3xl font-bold mb-4 text-left text-gray-900">3. Symptom Pattern Recognition</h3>
             </div>
 
             <div class="col-span-1 md:col-span-2 bg-white p-6 rounded-xl shadow-md">
@@ -160,9 +159,9 @@
                 </div>
             </div>
 
-            <!-- 2. Risk Factor Analysis -->
-            <div class="col-span-1 md:col-span-2 lg:col-span-4 bg-gradient-to-r from-purple-600 to-pink-600 p-6 rounded-xl shadow-lg">
-                <h3 class="text-3xl font-bold mb-4 text-center text-white">4. Risk Factor Analysis</h3>
+            <!-- 4. Risk Factor Analysis -->
+            <div class="col-span-1 md:col-span-2 lg:col-span-4">
+                <h3 class="text-3xl font-bold mb-4 text-left text-gray-900">4. Risk Factor Analysis</h3>
             </div>
 
             <div class="col-span-1 md:col-span-2 bg-white p-6 rounded-xl shadow-md">
@@ -194,8 +193,8 @@
             </div>
 
             <!-- 5. Surveillance / Epidemiological Analysis -->
-            <div class="col-span-1 md:col-span-2 lg:col-span-4 bg-gradient-to-r from-indigo-600 to-blue-600 p-6 rounded-xl shadow-lg">
-                <h3 class="text-3xl font-bold mb-4 text-center text-white">5. Surveillance / Epidemiological Analysis</h3>
+            <div class="col-span-1 md:col-span-2 lg:col-span-4">
+                <h3 class="text-3xl font-bold mb-4 text-left text-gray-900">5. Surveillance / Epidemiological Analysis</h3>
             </div>
 
             <div class="col-span-1 md:col-span-2 bg-white p-6 rounded-xl shadow-md">
@@ -319,9 +318,9 @@
                 </div>
             </div>
 
-            <!-- 5. Predictive Modeling & Decision Trees -->
-            <div class="col-span-1 md:col-span-2 lg:col-span-4 bg-gradient-to-r from-emerald-600 to-cyan-600 p-6 rounded-xl shadow-lg">
-                <h3 class="text-3xl font-bold mb-4 text-center text-white">6. Predictive Modeling & Decision Trees</h3>
+            <!-- 6. Predictive Modeling & Decision Trees -->
+            <div class="col-span-1 md:col-span-2 lg:col-span-4">
+                <h3 class="text-3xl font-bold mb-4 text-left text-gray-900">6. Predictive Modeling & Decision Trees</h3>
             </div>
 
             <div class="col-span-1 md:col-span-2 bg-white p-6 rounded-xl shadow-md">
@@ -358,7 +357,7 @@
 
         <!-- Footer -->
         <footer class="text-center mt-8 text-sm text-gray-500">
-            <p>Confidential Medical Data. For authorized personnel only. | Generated on: <span id="generation-date"></span></p>
+            <p>Created by Dr. Saw Tar Do Htoo</p>
         </footer>
     </div>
 
